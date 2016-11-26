@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="4"><input id="res" readonly="readonly" type="text"></td>
+		</tr>
+		<tr>
+			<td><input id="in" type="number" value="0"></td>
+			<td><button type="button" id="add" >+</button></td>
+			<td><button type="button" id="minus">-</button></td>
+			<td><button type="button" id="div">/</button></td>
+			<td><button type="button" id="multiply">*</button></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		 function add() {
+			return this.result + arguments[0];
+		};
+		
+		function add(a) {
+			return this.result + a;
+		};
+		
+		function add(a,b) {
+			return  a +b;
+		};
+
+		var minus = function minus(a) {
+			return this.result - a;
+		};
+
+		var div = function div(a) {
+			var rv = this.result / a;
+			if (isNaN(rv) || !isFinite(rv)) {
+				return 0;
+			}
+			return rv;
+		};
+
+		var multiply = function multiply(a, result) {
+			return result * a;
+		};
+
+		$(document).ready(function() {
+			var calculator = {
+				result : new Number(0),
+				a : undefined,
+				operator : undefined,
+				doOperator : function() {
+					this.result = this.operator(this.a, this.result);
+				}
+			};
+
+			$("#res").val(calculator.result);
+
+			function calculate() {
+				calculator.a = new Number($("#in").val());
+				calculator.doOperator();
+				$("#res").val(calculator.result);
+			}
+
+			$("#add").click(function() {
+				calculator.operator = add;
+				calculate();
+			});
+
+			$("#multiply").click(function() {
+				calculator.operator = multiply;
+				calculate();
+			});
+
+			$("#minus").click(function() {
+				calculator.operator = minus;
+				calculate();
+			});
+
+			$("#div").click(function() {
+				calculator.operator = div;
+				calculate();
+			});
+
+		});
+	</script>
+
+
+</body>
+</html>
