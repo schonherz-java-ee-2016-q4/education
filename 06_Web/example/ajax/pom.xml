@@ -34,6 +34,9 @@
 						<contextPath>/WebApp</contextPath>
 					</webApp>
 					<contextXml>src/main/resources/jetty/jetty-config.xml</contextXml>
+					<httpConnector>
+						<port>9090</port>
+					</httpConnector>
 				</configuration>
 			</plugin>
 		</plugins>
