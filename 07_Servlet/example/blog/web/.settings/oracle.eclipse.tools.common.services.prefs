@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+oracle.eclipse.tools.common.services\:collection.enablement\:javawebapp2.3=true
+oracle.eclipse.tools.common.services\:collection.enablement\:jsp1.2=true
+oracle.eclipse.tools.common.services\:discovery.enablement\:javawebapp2.3=true
+oracle.eclipse.tools.common.services\:discovery.enablement\:jsp1.2=true

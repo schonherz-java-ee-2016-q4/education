@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+  <mirrors>
+    <mirror>
+      <mirrorOf>*</mirrorOf>
+      <url>http://repo.maven.apache.org/maven2</url>
+    </mirror>
+	
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>default</id>
+      <repositories>
+        <!-- use mirror repository -->
+        <repository>
+          <id>default</id>
+          <url>mirror</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <!-- use mirror plugin repository -->
+        <pluginRepository>
+          <id>default</id>
+          <url>mirror</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>default</activeProfile>
+  </activeProfiles>
+  <pluginGroups>
+    <pluginGroup>com.atlassian.maven.plugins</pluginGroup>
+  </pluginGroups>
+</settings>
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>repo</name>
+          <url>http://repo.maven.apache.org/maven2</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>repo</name>
+          <url>http://devtools.surveysampling.com:8081/nexus/content/groups/public</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>repo</name>
+          <url>http://devtools.surveysampling.com:8081/nexus/content/groups/public</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+	
+
+    <profile>
+      <id>jboss7</id>
+      <properties>
+        <appserver.home>C:\AppServers\jboss-eap-6.1</appserver.home>
+      </properties>
+    </profile>
+    <profile>
+      <id>jboss6</id>
+      <properties>
+        <appserver.home>C:\AppServers\jboss-eap-6.1</appserver.home>
+      </properties>      
+    </profile>
+    <profile>
+      <id>tomcat7</id>
+      <properties>
+        <appserver.home></appserver.home>
+      </properties>
+    </profile>
+  </profiles>
+  
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+    <activeProfile>jboss7</activeProfile>
+  </activeProfiles>
+ 
+</settings>
+-->
