@@ -10,11 +10,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
-public class Example {
+public class UserResult {
 
 @SerializedName("results")
 @Expose
-private List<Result> results = new ArrayList<Result>();
+private List<User> results = new ArrayList<User>();
 @SerializedName("info")
 @Expose
 private Info info;
@@ -24,7 +24,7 @@ private Info info;
 * @return
 * The results
 */
-public List<Result> getResults() {
+public List<User> getResults() {
 return results;
 }
 
@@ -33,7 +33,7 @@ return results;
 * @param results
 * The results
 */
-public void setResults(List<Result> results) {
+public void setResults(List<User> results) {
 this.results = results;
 }
 
