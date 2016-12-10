@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import hu.schonherz.blog.service.api.User;
+import hu.schonherz.blog.service.api.user.vo.Login;
+import hu.schonherz.blog.service.api.user.vo.User;
 
 public class UserServiceImplTest {
 
@@ -14,7 +15,8 @@ public class UserServiceImplTest {
 		List<User> list = serviceImpl.findAllUser();
 
 		for (User user : list) {
-			System.out.println(user.getName().getFirst());
+			Login login = user.getLogin();
+			System.out.println(login.getUsername() + " " + login.getPassword());
 		}
 
 	}
