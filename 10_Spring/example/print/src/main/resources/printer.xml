@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--Tickle this and the above to enable the annotation based configuration-->
+    <!--<context:component-scan base-package="hu.schonhertz.training"/>-->
+    <context:property-placeholder location="runtime.properties"/>
+
+    <!--Comment this out when the annotation config is in place-->
+    <bean id="main" class="hu.schonhertz.training.print.Main">
+        <constructor-arg index="0">
+            <bean class="hu.schonhertz.training.print.printer.ReversePrinter"/>
+        </constructor-arg>
+        <property name="lengthValidator">
+            <bean class="hu.schonhertz.training.print.validator.LengthValidator">
+                <constructor-arg index="0" value="${min.length}"/>
+            </bean>
+        </property>
+        <property name="contentValidator" ref="contentValidator"/>
+        <property name="notEmptyValidator">
+            <bean class="hu.schonhertz.training.print.validator.NotEmptyValidator"/>
+        </property>
+    </bean>
+
+    <bean id="contentValidator" class="hu.schonhertz.training.print.validator.ContentValidator"/>
+
+
+</beans>
