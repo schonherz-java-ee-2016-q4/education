@@ -1,0 +1,6 @@
+<Context>
+    <Resource name="jdbc/BlogJpa" auth="Container" type="javax.sql.DataSource"
+              maxActive="20" maxIdle="5" maxWait="10000"
+              username="postgres" password="pass" driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/Blog"/>
+</Context>
