@@ -2,7 +2,13 @@ package hu.schonhertz.training.blog.entity;
 
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The Class User.
@@ -19,7 +25,6 @@ public class Blog extends BaseEntity {
     @JoinColumn(name = "blog_id")
     private Set<Comment> comments;
 
-    @Basic
     private String title;
 
     @Lob
