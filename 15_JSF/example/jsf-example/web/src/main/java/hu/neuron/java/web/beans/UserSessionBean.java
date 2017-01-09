@@ -1,5 +1,6 @@
 package hu.neuron.java.web.beans;
 
+import java.io.Serializable;
 import java.security.Principal;
 
 import javax.annotation.PostConstruct;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @SessionScoped
 @ManagedBean(name = "userSessionBean")
-public class UserSessionBean {
+public class UserSessionBean implements Serializable {
+
+	private static final long serialVersionUID = -5959611823743979912L;
 
 	private Boolean authenticated;
 

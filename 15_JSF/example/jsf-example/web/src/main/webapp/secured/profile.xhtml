@@ -1,0 +1,106 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterLayout.xhtml">
+
+
+	<ui:define name="pageTitle">#{out['profile.title']}</ui:define>
+
+	<ui:define name="head-extra">
+
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form">
+
+			<div class="panel panel-default">
+
+				<div class="panel-heading">Profile</div>
+				<div class="panel-body">
+					<p:messages></p:messages>
+
+
+					<div class="form-group row">
+
+						<h:outputLabel for="userName" value="Username"
+							styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="userName" readonly="true"
+								styleClass="form-control" label="userName"
+								value="#{profileController.userVO.userName}" />
+						</div>
+
+					</div>
+
+
+					<div class="form-group row">
+
+						<h:outputLabel for="firstName" value="First name"
+							styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="firstName" styleClass="form-control" required="true"
+								label="firstName" value="#{profileController.userVO.firstName}" >
+							 <p:clientValidator />
+							 <f:validateLength minimum="6"></f:validateLength>
+								</h:inputText>
+						</div>
+
+					</div>
+
+					<div class="form-group row">
+
+						<h:outputLabel for="lastName" value="LastName"
+							styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="lastName" styleClass="form-control" required="true"
+								label="lastName" value="#{profileController.userVO.lastName}" />
+						</div>
+
+					</div>
+
+					<div class="form-group row">
+
+						<h:outputLabel for="email" value="Email"
+							styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-10">
+							<h:inputText id="email" styleClass="form-control" label="email" required="true"
+								value="#{profileController.userVO.email}" />
+						</div>
+
+					</div>
+
+					<div class="form-group row">
+
+						<h:outputLabel for="birthDate" value="birthDate"
+							styleClass="col-sm-2 col-form-label" />
+
+						<div class="col-sm-5">
+							<p:calendar id="birthDate"
+								value="#{profileController.userVO.birthDate}" showOn="button"
+								required="true" />
+
+						</div>
+						<div class="col-sm-5">
+							<p:message for="birthDate" display="text" style="color:red"></p:message>
+						</div>
+
+					</div>
+				</div>
+				<div class="panel-footer text-right">
+					<p:commandButton actionListener="#{profileController.save}" update="form" ajax="false" validateClient="true"
+						value="Save"></p:commandButton>
+				</div>
+			</div>
+
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

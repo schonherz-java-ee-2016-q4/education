@@ -28,7 +28,7 @@
 	</h:head>
 
 	<h:body>
-		<p:growl id="growl" showDetail="true" autoUpdate="true" />
+		<p:growl id="growl" showDetail="true" autoUpdate="true" sticky="true" />
 		<h:form id="loginPopup" styleClass="navbar-form navbar-right">
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -94,6 +94,14 @@
 							<p:link href="/secured/users.xhtml">Data Table</p:link>
 						</li>
 					</ul>
+					<c:if test="#{request.userPrincipal.name != null}">
+					<ul class="nav nav-sidebar">
+						<li
+							class="#{request.requestURI.toString().contains('/secured/profile.xhtml') ? 'active ' : ''}">
+							<p:link href="/secured/profile.xhtml">Profile</p:link>
+						</li>
+					</ul>
+					</c:if>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
