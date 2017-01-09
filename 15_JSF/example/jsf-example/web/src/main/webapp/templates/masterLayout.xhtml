@@ -19,7 +19,7 @@
 
 		<h:outputStylesheet library="css" name="bootstrap.css" />
 		<h:outputStylesheet library="css" name="dashboard.css" />
-
+		<h:outputStylesheet library="css" name="style.css" />
 
 
 		<title><ui:insert name="pageTitle"></ui:insert></title>
@@ -28,7 +28,7 @@
 	</h:head>
 
 	<h:body>
-
+		<p:growl id="growl" showDetail="true" autoUpdate="true" />
 		<h:form id="loginPopup" styleClass="navbar-form navbar-right">
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -86,7 +86,7 @@
 							class="#{request.requestURI.toString().contains('/secured/secured.xhtml') ? 'active ' : ''}">
 							<p:link href="/secured/secured.xhtml">Security example</p:link>
 						</li>
-						
+
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li
@@ -98,9 +98,9 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 
-					<p:growl id="growl" showDetail="true" autoUpdate="true" />
 
-					<div class="container">
+
+					<div class="">
 						<ui:insert name="content" />
 					</div>
 				</div>

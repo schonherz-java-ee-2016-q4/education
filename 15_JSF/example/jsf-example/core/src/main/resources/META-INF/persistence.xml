@@ -2,7 +2,7 @@
 
 	<persistence-unit name="hu.neuron.java.jpa">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<non-jta-data-source>jdbc/example</non-jta-data-source>
+		<non-jta-data-source>java:jboss/jdbc/example</non-jta-data-source>
 		<class>hu.neuron.java.core.entity.BaseEntity</class>
 		<class>hu.neuron.java.core.entity.Role</class>
         <class>hu.neuron.java.core.entity.User</class>
