@@ -1,4 +1,14 @@
   <jms-queue name="BadWordQueueIn" entries="java:/jms/queue/BadWordQueueIn"/>
-                <jms-queue name="BadWordQueueOut" entries="java:/jms/queue/BadWordQueueOut"/>
-                <jms-queue name="Queue" entries="java:/jms/queue/Queue"/>
-                <jms-queue name="QueueSync" entries="java:/jms/queue/QueueSync"/>
+  <jms-queue name="BadWordQueueOut" entries="java:/jms/queue/BadWordQueueOut"/>
+  <jms-queue name="Queue" entries="java:/jms/queue/Queue"/>
+  <jms-queue name="QueueSync" entries="java:/jms/queue/QueueSync"/>
+  
+  <datasource jta="true" jndi-name="java:jboss/jdbc/exampleEJB" pool-name="exmpleEJB" enabled="true" use-ccm="false">
+                    <connection-url>jdbc:postgresql://localhost/exampleEJB</connection-url>
+                    <driver-class>org.postgresql.Driver</driver-class>
+                    <driver>postgres</driver>
+                    <security>
+                        <user-name>postgres</user-name>
+                        <password>admin</password>
+                    </security>
+                </datasource>
