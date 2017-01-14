@@ -49,6 +49,14 @@
 			<artifactId>all-themes</artifactId>
 		</dependency>
 
+
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>chat-web</finalName>

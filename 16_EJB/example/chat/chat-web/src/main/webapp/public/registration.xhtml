@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/masterLayout.xhtml">
+	<ui:define name="pageTitle">Registration</ui:define>
+	<ui:define name="content">
+		<h:form id="registratonForm">
+			<h:outputLabel value="Username:" for="username" />
+			<p:inputText id="username"
+				value="#{registrationView.userVo.username}" required="true" />
+			<p:message for="username" />
+
+			<h:outputLabel value="Password" for="password" />
+			<p:password id="password" value="#{registrationView.userVo.password}"
+				required="true">
+				<f:validateLength minimum="6"></f:validateLength>
+			</p:password>
+			<p:message for="password" />
+
+			<p:commandButton value="Registration"
+				actionListener="#{registrationView.registration()}"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
