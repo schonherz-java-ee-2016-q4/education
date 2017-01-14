@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import hu.schonherz.jee.service.client.api.service.user.UserServiceRemote;
 import hu.schonherz.jee.service.client.api.vo.UserVo;
 
@@ -27,8 +29,20 @@ public class RegistrationView {
 	public void registration() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
-			serviceRemote.registrationUser(userVo);
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successsssss!", "Registration!"));
+			UserVo check = serviceRemote.findByUsername(userVo.getUsername());
+			if (check != null) {
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error!", "Usernem alredyuse!"));
+
+			} else {
+				
+				BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+				String encryptedPass = bCryptPasswordEncoder.encode(userVo.getPassword());
+				userVo.setPassword(encryptedPass);
+				
+				serviceRemote.registrationUser(userVo);
+				context.addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_INFO, "Successsssss!", "Registration!"));
+			}
 		} catch (Exception e) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error!", "Registration!"));
 
