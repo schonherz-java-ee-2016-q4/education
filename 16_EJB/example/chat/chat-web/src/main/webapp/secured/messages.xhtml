@@ -9,11 +9,15 @@
 		<div class="row">
 			<div class="col-sm-7">
 				<h:form id="messageForm">
-					<p:dataList value="#{messagesView.messages}" var="message">
-						<h:outputLabel value="#{message.fromUser.username} : #{message.content}  " />
+					<p:poll async="true" delay="1000" update="messagesList"></p:poll>
+					<p:dataList id="messagesList" value="#{messagesView.messages}"
+						var="message">
+						<h:outputLabel
+							value="#{message.fromUser.username} : #{message.content}  " />
 					</p:dataList>
 					<p:inputTextarea value="#{messagesView.content}"></p:inputTextarea>
-					<p:commandButton value="Send" actionListener="#{messagesView.send}" update="messageForm" disabled="#{messagesView.toUser == null}"></p:commandButton>
+					<p:commandButton value="Send" actionListener="#{messagesView.send}"
+						update="messageForm" disabled="#{messagesView.toUser == null}"></p:commandButton>
 				</h:form>
 			</div>
 			<div class="col-sm-5">

@@ -5,15 +5,16 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.jms.Connection;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import hu.schonherz.jee.service.client.api.service.message.MessageService;
 import hu.schonherz.jee.service.client.api.service.message.MessageServiceRemote;
 import hu.schonherz.jee.service.client.api.service.user.UserServiceRemote;
 import hu.schonherz.jee.service.client.api.vo.MessageVo;
@@ -54,6 +55,8 @@ public class MessagesView {
 
 		messageServiceRemote.sendMessage(message);
 	}
+	
+	
 
 	public List<MessageVo> getMessages() {
 		if (toUser != null) {
