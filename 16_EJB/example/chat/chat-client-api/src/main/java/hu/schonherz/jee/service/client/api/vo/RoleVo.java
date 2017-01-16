@@ -2,7 +2,7 @@ package hu.schonherz.jee.service.client.api.vo;
 
 import java.io.Serializable;
 
-public class RoleVo implements Serializable {
+public class RoleVo extends BaseVo implements Serializable {
 
 	private static final long serialVersionUID = -4090329349403410228L;
 

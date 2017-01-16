@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ejb.interceptor.SpringBeanAutowiringInterceptor;
 
 import hu.schonherz.jee.core.dao.MessageDao;
+import hu.schonherz.jee.core.dao.UserDao;
 import hu.schonherz.jee.core.entity.Message;
 import hu.schonherz.jee.core.entity.User;
 import hu.schonherz.jee.service.client.api.service.message.MessageServiceLocal;
@@ -32,6 +33,10 @@ public class MessageServiceBean implements MessageServiceRemote, MessageServiceL
 	@Autowired
 	private MessageDao messageDao;
 
+	@Autowired
+	private UserDao userDao;
+
+	
 	@Override
 	public void sendMessage(MessageVo message) {
 		messageDao.save(MessageVoMapper.toEntity(message));
@@ -41,9 +46,9 @@ public class MessageServiceBean implements MessageServiceRemote, MessageServiceL
 	public List<MessageVo> getMessages(UserVo from, UserVo to) {
 		User fromEntity = UserVoMapper.toEntity(from);
 		User toEntity = UserVoMapper.toEntity(to);
-
-		List<Message> messages = messageDao.findByFromUserAndToUserOrFromUserAndToUserOrderByrecDateDesc(fromEntity,
-				toEntity, toEntity, fromEntity);
+		
+		
+		List<Message> messages = messageDao.findMessage(fromEntity, toEntity);
 
 		return MessageVoMapper.toVo(messages);
 	}

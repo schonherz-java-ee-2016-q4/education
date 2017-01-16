@@ -2,7 +2,7 @@ package hu.schonherz.jee.service.client.api.vo;
 
 import java.io.Serializable;
 
-public class MessageVo implements Serializable {
+public class MessageVo extends BaseVo implements Serializable {
 
 	private static final long serialVersionUID = -5395968745834185014L;
 	

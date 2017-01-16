@@ -8,6 +8,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/jdbc/exampleEJB</jta-data-source>
 		<class>hu.schonherz.jee.core.entity.BaseEntity</class>
+		<class>hu.schonherz.jee.core.entity.Message</class>
 		<class>hu.schonherz.jee.core.entity.Role</class>
 		<class>hu.schonherz.jee.core.entity.User</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
