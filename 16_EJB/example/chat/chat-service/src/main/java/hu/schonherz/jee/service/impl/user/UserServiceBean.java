@@ -51,7 +51,7 @@ public class UserServiceBean implements UserServiceRemote, UserServiceLocal {
 	@Override
 	public UserVo registrationUser(UserVo userVo) {
 		User user = UserVoMapper.toEntity(userVo);
-		
+
 		List<Role> roles = new ArrayList<>();
 
 		Role role = roleDao.findByName(ROLE_USER);
@@ -60,6 +60,12 @@ public class UserServiceBean implements UserServiceRemote, UserServiceLocal {
 
 		user = userDao.save(user);
 		return UserVoMapper.toVo(user);
+	}
+
+	@Override
+	public List<UserVo> findAll() {
+
+		return UserVoMapper.toVo(userDao.findAll());
 	}
 
 }
